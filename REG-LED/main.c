@@ -63,7 +63,7 @@ int main(void)
 	led_pb_rcc_enable();
 
 	led_pb_mode_set(LED_GREEN_INDEX);  // G
-	led_pb_mode_set(1);  // B
+	led_pb_mode_set(LED_BLUE_INDEX);  // B
 	led_pb_mode_set(LED_RED_INDEX);  // R
 
 	while(1) {
