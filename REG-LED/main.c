@@ -24,21 +24,21 @@ void delay(void)
 void led_pb_rcc_enable(void)
 {
 	// 使能PortB时钟
-	*(unsigned int *)(0x40021018) |= (1<<3);
+	RCC_APB2ENR |= (1<<3);
 }
 
 void led_pb_mode_set(char pb_index)
 {
 	// 配置PBx为输出
-	*(unsigned int *)(0x40010C00) |= (1<<(4*pb_index));
+	GPIOB_CRL |= (1<<(4*pb_index));
 }
 
 void led_pb_output_value_set(char pb_index, char value)
 {
 	if (value) {
-		*(unsigned int *)(0x40010C0C) |= (1<<pb_index); // 高电平熄灭
+		GPIOB_ODR |= (1<<pb_index); // 高电平熄灭
 	} else {
-		*(unsigned int *)(0x40010C0C) &= ~(1<<pb_index); // 低电平点亮
+		GPIOB_ODR &= ~(1<<pb_index); // 低电平点亮
 	}
 }
 
@@ -46,17 +46,17 @@ int main(void)
 {
 #if 0
 	// 使能PortB时钟
-	*(unsigned int *)(0x40021018) |= (1<<3);
+	RCC_APB2ENR |= (1<<3);
 
 	// 配置PB1为输出
-	*(unsigned int *)(0x40010C00) |= (1<<(4*1));
+	GPIOB_CRL |= (1<<(4*1));
 
 	while(1) {
 		// 控制ODR寄存器
-		*(unsigned int *)(0x40010C0C) &= ~(1<<1); // 低电平点亮
+		GPIOB_ODR &= ~(1<<1); // 低电平点亮
 		delay();
 		
-		*(unsigned int *)(0x40010C0C) |= (1<<1); // 高电平熄灭
+		GPIOB_ODR |= (1<<1); // 高电平熄灭
 		delay();
 	}
 #endif
