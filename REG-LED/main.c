@@ -42,6 +42,25 @@ void led_pb_output_value_set(char pb_index, char value)
 	}
 }
 
+void led_pb_output_value_set_with_bsrr(char pb_index, char value)
+{
+	if (value) {
+		GPIOB_BSRR |= (1<<pb_index); // Ï¨Ãð
+	} else {
+		// GPIOB_BSRR &= ~(1<<pb_index); // ÇåÁãBS
+		GPIOB_BSRR |= (1<<(pb_index+16)); // µãÁÁ
+	}
+}
+
+void led_pb_output_value_set_with_brr(char pb_index, char value)
+{
+	if (value) {
+		led_pb_output_value_set_with_bsrr(pb_index, value); // Ï¨Ãð
+	} else {
+		GPIOB_BRR |= (1<<pb_index); // µãÁÁ
+	}
+}
+
 int main(void)
 {
 #if 0
@@ -67,19 +86,13 @@ int main(void)
 	led_pb_mode_set(LED_RED_INDEX);  // R
 
 	while(1) {
-		led_pb_output_value_set(LED_GREEN_INDEX, LED_ON);
+		led_pb_output_value_set_with_brr(LED_GREEN_INDEX, LED_ON);
+		led_pb_output_value_set_with_brr(LED_BLUE_INDEX, LED_ON);
+		led_pb_output_value_set_with_brr(LED_RED_INDEX, LED_ON);
 		delay();
-		led_pb_output_value_set(LED_GREEN_INDEX, LED_OFF);
-		delay();
-		
-		led_pb_output_value_set(LED_BLUE_INDEX, LED_ON);
-		delay();
-		led_pb_output_value_set(LED_BLUE_INDEX, LED_OFF);
-		delay();
-		
-		led_pb_output_value_set(LED_RED_INDEX, LED_ON);
-		delay();
-		led_pb_output_value_set(LED_RED_INDEX, LED_OFF);
+		led_pb_output_value_set_with_brr(LED_GREEN_INDEX, LED_OFF);
+		led_pb_output_value_set_with_brr(LED_BLUE_INDEX, LED_OFF);
+		led_pb_output_value_set_with_brr(LED_RED_INDEX, LED_OFF);
 		delay();
 	}
 

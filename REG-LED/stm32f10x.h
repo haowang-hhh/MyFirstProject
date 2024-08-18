@@ -14,4 +14,6 @@
 #define GPIOB_CRL        *(unsigned int *)(GPIOB_BASE + 0x00)
 #define GPIOB_CRH        *(unsigned int *)(GPIOB_BASE + 0x04)
 #define GPIOB_ODR        *(unsigned int *)(GPIOB_BASE + 0x0C)
+#define GPIOB_BSRR       *(unsigned int *)(GPIOB_BASE + 0x10)
+#define GPIOB_BRR        *(unsigned int *)(GPIOB_BASE + 0x14)
 
