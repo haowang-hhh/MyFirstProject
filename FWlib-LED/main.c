@@ -1,4 +1,5 @@
 #include "stm32f10x.h"
+#include "stm32f10x_gpio.h"
 
 #define LED_RED_INDEX   5
 #define LED_GREEN_INDEX 0
@@ -85,7 +86,10 @@ int main(void)
 	led_pb_mode_set(LED_BLUE_INDEX);   // B
 	led_pb_mode_set(LED_RED_INDEX);    // R
 
+	GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
+
 	while(1) {
+	#if 0
 		led_pb_output_value_set_with_brr(LED_GREEN_INDEX, LED_ON);
 		led_pb_output_value_set_with_brr(LED_BLUE_INDEX, LED_ON);
 		led_pb_output_value_set_with_brr(LED_RED_INDEX, LED_ON);
@@ -94,10 +98,20 @@ int main(void)
 		led_pb_output_value_set_with_brr(LED_BLUE_INDEX, LED_OFF);
 		led_pb_output_value_set_with_brr(LED_RED_INDEX, LED_OFF);
 		delay();
+	#endif
+		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
+		delay();
+		GPIO_ResetBits(GPIOB, GPIO_Pin_5);
+		delay();
+		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
+		delay();
+		GPIO_ResetBits(GPIOB, GPIO_Pin_0);
+		delay();
+		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
+		delay();
+		GPIO_ResetBits(GPIOB, GPIO_Pin_1);
+		delay();
 	}
-
-	
-	return 0;
 }
 
 

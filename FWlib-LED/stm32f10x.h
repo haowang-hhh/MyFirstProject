@@ -1,3 +1,6 @@
+#ifndef __STM32F10X_H
+#define __STM32F10X_H
+
 // 用来存放STM32寄存器映射的代码
 
 // 外设 peripheral
@@ -45,4 +48,6 @@ typedef struct {
 
 #define GPIOB ((GPIO_TypeDef *)GPIOB_BASE)
 #define RCC   ((RCC_TypeDef *)RCC_BASE)
+
+#endif /* __STM32F10X_H */
 
