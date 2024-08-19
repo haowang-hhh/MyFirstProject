@@ -22,7 +22,33 @@
 #define GPIO_Pin_15   ((uint16_t)0x8000)  /* !<选择Pin15> */
 #define GPIO_Pin_ALL  ((uint16_t)0xFFFF)  /* !<选择Pin16> */
 
+typedef enum {
+    GPIO_Mode_AIN = 0x0,           // 模拟输入     (0000 0000)b
+    GPIO_Mode_IN_FLOATING = 0x04,  // 浮空输入     (0000 0100)b
+    GPIO_Mode_IPD = 0x28,          // 下拉输入     (0010 1000)b
+    GPIO_Mode_IPU = 0x48,          // 上拉输入     (0100 1000)b
+  
+    GPIO_Mode_Out_OD = 0x14,       // 开漏输出     (0001 0100)b
+    GPIO_Mode_Out_PP = 0x10,       // 推挽输出     (0001 0000)b
+    GPIO_Mode_AF_OD = 0x1C,        // 复用开漏输出 (0001 1100)b
+    GPIO_Mode_AF_PP = 0x18         // 复用推挽输出 (0001 1000)b
+} GPIOMode_TypeDef;
+
+typedef enum {
+    GPIO_Speed_10MHZ = 1,
+    GPIO_Speed_20MHZ,
+    GPIO_Speed_50MHZ,
+} GPIO_SpeedTypeDef;
+
+typedef struct {
+    uint16_t GPIO_Pin;
+    uint16_t GPIO_Speed;
+    uint16_t GPIO_Mode;
+} GPIO_InitTypeDef;
+
+
 void GPIO_SetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin_x);
 void GPIO_ResetBits(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin_x);
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct);
 
 #endif /* __STM32F10X_GPIO_H */

@@ -64,6 +64,7 @@ void led_pb_output_value_set_with_brr(char pb_index, char value)
 
 int main(void)
 {
+	GPIO_InitTypeDef GPIO_InitStructure;
 #if 0
 	// Ê¹ÄÜPortBÊ±ÖÓ
 	RCC_APB2ENR |= (1<<3);
@@ -82,9 +83,10 @@ int main(void)
 #endif
 	led_pb_rcc_enable();
 
-	led_pb_mode_set(LED_GREEN_INDEX);  // G
-	led_pb_mode_set(LED_BLUE_INDEX);   // B
-	led_pb_mode_set(LED_RED_INDEX);    // R
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_5;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHZ;
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
 
 	GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
 
@@ -101,15 +103,7 @@ int main(void)
 	#endif
 		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
 		delay();
-		GPIO_ResetBits(GPIOB, GPIO_Pin_5);
-		delay();
-		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
-		delay();
-		GPIO_ResetBits(GPIOB, GPIO_Pin_0);
-		delay();
-		GPIO_SetBits(GPIOB, GPIO_Pin_ALL);
-		delay();
-		GPIO_ResetBits(GPIOB, GPIO_Pin_1);
+		GPIO_ResetBits(GPIOB, GPIO_Pin_ALL);
 		delay();
 	}
 }
