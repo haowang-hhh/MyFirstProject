@@ -1,0 +1,40 @@
+
+T4FB4 027:909 SEGGER J-Link V6.10i Log File (0002ms, 0003ms total)
+T4FB4 027:909 DLL Compiled: Oct 25 2016 19:31:51 (0002ms, 0003ms total)
+T4FB4 027:909 Logging started @ 2024-08-26 23:03 (0002ms, 0003ms total)
+T4FB4 027:911 JLINK_SetWarnOutHandler(...) (0000ms, 0003ms total)
+T4FB4 027:911 JLINK_OpenEx(...)
+  ***** Error: Can not connect to J-Link via USB.  returns "Can not connect to J-Link via USB." (0000ms, 0003ms total)
+
+  ***** API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T4FB4 027:911 
+  ***** Error: Can not connect to J-Link via USB.JLINK_IsOpen()  returns 0x00 (0000ms, 0003ms total)
+T4FB4 028:591 JLINK_EMU_SelectByUSBSN(SerialNo = 0)  returns 0xFFFFFFFF (0000ms, 0003ms total)
+T4FB4 028:592 JLINK_EnableLog(...) (0000ms, 0004ms total)
+T4FB4 028:592 JLINK_SetWarnOutHandler(...) (0000ms, 0004ms total)
+T4FB4 028:592 JLINK_OpenEx(...)
+  ***** Error: Can not connect to J-Link via USB.  returns "Can not connect to J-Link via USB." (0000ms, 0004ms total)
+
+  ***** API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T4FB4 028:592 
+  ***** Error: Can not connect to J-Link via USB.JLINK_IsOpen()  returns 0x00 (0000ms, 0004ms total)
+T4FB4 029:447 JLINK_EMU_SelectByUSBSN(SerialNo = 0)  returns 0xFFFFFFFF (0000ms, 0004ms total)
+T4FB4 029:447 JLINK_EnableLog(...) (0000ms, 0004ms total)
+T4FB4 029:447 JLINK_SetWarnOutHandler(...) (0000ms, 0004ms total)
+T4FB4 029:447 JLINK_OpenEx(...)
+  ***** Error: Can not connect to J-Link via USB.  returns "Can not connect to J-Link via USB." (0000ms, 0004ms total)
+
+  ***** API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T4FB4 029:447 
+  ***** Error: Can not connect to J-Link via USB.JLINK_IsOpen()  returns 0x00 (0000ms, 0004ms total)
+T4FB4 030:286 JLINK_EMU_SelectByUSBSN(SerialNo = 0)  returns 0xFFFFFFFF (0000ms, 0004ms total)
+T4FB4 030:286 JLINK_EnableLog(...) (0000ms, 0004ms total)
+T4FB4 030:286 JLINK_SetWarnOutHandler(...) (0000ms, 0004ms total)
+T4FB4 030:286 JLINK_OpenEx(...)
+  ***** Error: Can not connect to J-Link via USB.  returns "Can not connect to J-Link via USB." (0000ms, 0004ms total)
+
+  ***** API Error: API JLINK_GetHardwareVersion function called before JLINKARM_Open()
+T4FB4 030:287 
+  ***** Error: Can not connect to J-Link via USB.JLINK_Close() (0000ms, 0004ms total)
+T4FB4 099:464  (0000ms, 0004ms total)
+T4FB4 099:464 Closed (0000ms, 0004ms total)
